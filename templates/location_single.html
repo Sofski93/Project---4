@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<!-- Section showing photo to left, comment form to right -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 card mb-4 mt-3">
+            <div class="row mt-3">
+                <div class="col-md-8">
+                    <h1 class="location-title">{{ location.title }}</h1>
+                </div>
+                <div class="col-md-4 d-flex justify-content-end">
+                    <strong>
+                        {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url 'location_like' location.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if liked %}
+                            <button type="submit" name="blogpost_id" value="{{location.slug}}" class="btn-like"><i
+                                    class="fas fa-heart" style="font-size: 40px;"></i></button>
+                            {% else %}
+                            <button type="submit" name="blogpost_id" value="{{location.slug}}" class="btn-like"><i
+                                    class="far fa-heart" style="font-size: 40px;"></i></button>
+                            {% endif %}
+                        </form>
+                        {% else %}
+                        <span class="text-secondary"><i class="far fa-heart" style="font-size: 40px;"></i></span>
+                        {% endif %}
+                        <!-- The number of likes goes before the closing strong tag -->
+                        <span class="fs-1">{{ location.number_of_likes }} </span>
+                    </strong>
+                </div>
+            </div>
+
+
+            <div class="card-body">
+                <div class="image-container">
+                    {% if "placeholder_image" in location.location_image.url %}
+                    <img class="card-img-top card-border" src="{% static 'images/cliffs.jpg' %}" alt="Explore Ireland" >
+                    {% else %}
+                    <img class="card-img-top card-border" src=" {{ location.location_image.url }}" alt="Explore Ireland" >
+                    {% endif %}
+                </div>
+                <p class="post-subtitle">{{ location.creator }} | {{ location.created_at }}</p>
+                <p class="card-text ">{{ location.body | safe }}</p>
+            </div>
+        </div>
+        <div class="col-md-4 card mb-4  mt-3 ">
+            <div class="card-body">
+                {% if user.is_authenticated %}
+
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg mt-3">Submit Comment</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 card mb-4  mt-3 ">
+            <h3>Comments: {% with comments.count as total_comments %}
+                <strong class="fs-1"><i class="far fa-comments" style="font-size: 40px;"></i>
+                    {{ total_comments }}
+                </strong>
+                {% endwith %}</h3>
+            <div class="card-body">
+                {% for comment in comments %}
+                <div class="comments" style="padding: 10px;">
+                    <p class="font-weight-bold">
+                        {{ comment.name }}
+                        <span class=" text-muted font-weight-normal">
+                            {{ comment.created_at }}
+                        </span> wrote:
+                    </p>
+                    <div class="comment-body">{{ comment.body  | linebreaks }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

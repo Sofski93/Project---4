@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+{% load cloudinary %}
+
+{% load crispy_forms_tags%}
+
+<!-- RECIPE FORM -->
+<div class="container">
+    <div class="row">
+        <div class="col-10 mt-3 offset-1 g-0">
+            {% if user.is_authenticated %}
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ location_form | crispy }}
+                <button class="btn btn-signup right my-4" type="submit" value="Save">Add New Location</button>
+            </form>
+            {% else %}
+            <h2 class="text-center">You do not have authorization to this page! Please login/signup.</h2>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

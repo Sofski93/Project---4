@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+    <div class="row">
+        <div class="col ms-auto">
+            <h1 class="text-center py-4">My Locations</h1>
+            <h3 class="text-center mb-4">Manage your location posts here</h3>
+        </div>
+    </div>
+</div>
+
+{% if the_locations|length == 0 %}
+
+<h3 class="text-center p-4">You haven't added any locations yet! Please <a class="link"
+        href="{% url 'add_location' %}">add one now.</a></h3>
+
+{% else %}
+
+<div class="container" style="width: 83%;">
+    {% for location in the_locations %}
+    <div class="row">
+        <div class="col-ms-auto">
+            
+                <div class="row table-spacer">
+                    <div class="col-sm-4">
+                        {% if not location.status %}
+                        <h2 class="card-title">{{ location.title }}</h2>
+                        {% else %}
+                        <a href="{% url 'location_single' location.slug %}" class="post-link"><h2 class="card-title">{{ location.title }}</h2></a>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-sm-8">
+                        <a class="btn btn-warning" href="{% url 'edit_location' location.id %}" role="button">EDIT</a>
+                        <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteLocationModal"
+                            role="button">DELETE</a>
+
+                        {% if not location.status %}
+                        <a class="btn btn-success" href="{% url 'publish_location' location.id %}"
+                            role="button">PUBLISH</a>
+                        {% endif %}
+                    </div>
+
+                </div>
+            
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="deleteLocationModal" tabindex="-1" role="dialog"
+        aria-labelledby="deleteLocationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h3 class="modal-title text-light" id="deleteLocationModalLabel">Delete Location</h3>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this location?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger" href="{% url 'delete_location' location.id %}" role="button">YES,
+                        Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor%}
+</div>
+
+
+
+{% endif %}
+
+{% endblock content%}

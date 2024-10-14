@@ -23,5 +23,5 @@
    "files.autoSave": "off",
    "workbench.colorTheme": "Monokai Dimmed",
    "terminal.integrated.gpuAcceleration": "canvas",
-   "editor.defaultFormatter": "HookyQR.bea
+   "editor.defaultFormatter": "HookyQR.beautify"
 }

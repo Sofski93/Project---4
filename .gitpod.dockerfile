@@ -87,8 +87,10 @@ RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"
     echo 'alias make_url="python3 $GITPOD_REPO_ROOT/.vscode/make_url.py "' >> ~/.bashrc
 
 # Local environment variables
+ENV C9_USER="root"
 ENV PORT="8080"
 ENV IP="0.0.0.0"
+ENV C9_HOSTNAME="localhost"
 
 # Despite the scary name, this is just to allow React and DRF to run together on Gitpod
 ENV DANGEROUSLY_DISABLE_HOST_CHECK=true

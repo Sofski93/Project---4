@@ -24,9 +24,9 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder_image" in location.location_image.url %}
-                                <img class="card-img-top card-border" src="{% static 'images/cliffs.jpg' %}" alt="Explore Ireland" >
+                                <img class="card-img-top card-border" src="{% static 'images/cliffs.jpg' %}" alt="Explore Faroe Islands" >
                                 {% else %}
-                                <img class="card-img-top card-border" src=" {{ location.location_image.url }}" alt="Explore Ireland" >
+                                <img class="card-img-top card-border" src=" {{ location.location_image.url }}" alt="Explore Faroe Islands" >
                                 {% endif %}
                                 <div class="location-homepage-info">
                                     <p class="author">Posted by: {{ location.creator }}</p>

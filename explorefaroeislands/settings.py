@@ -1,9 +1,7 @@
-import os
-import sys
 from pathlib import Path
-import django_heroku
+from django.contrib.messages import constants as messages
+import os
 import dj_database_url
-import environ
 
 if os.path.isfile('env.py'):
     import env

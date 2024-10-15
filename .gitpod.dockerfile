@@ -104,6 +104,6 @@ RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"
 # Local environment variables
 # C9USER is temporary to allow the MySQL Gist to run
 ENV C9_USER="root"
-ENV PORT="8000"
+ENV PORT="8080"
 ENV IP="0.0.0.0"
 ENV C9_HOSTNAME="localhost"

@@ -83,7 +83,7 @@ COPY .vscode/start_mysql.sh /etc/mysql/mysql-bashrc-launch.sh
 # Start MySQL when we log in
 # Add aliases
 
-RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:3000"' >> ~/.bashrc && \
+RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"' >> ~/.bashrc && \
     echo 'alias heroku_config=". $GITPOD_REPO_ROOT/.vscode/heroku_config.sh"' >> ~/.bashrc && \
     echo 'alias rmdep=". $GITPOD_REPO_ROOT/.vscode/rmdep.sh"' >> ~/.bashrc && \
     echo 'alias python=python3' >> ~/.bashrc && \
@@ -104,6 +104,6 @@ RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:3000"
 # Local environment variables
 # C9USER is temporary to allow the MySQL Gist to run
 ENV C9_USER="root"
-ENV PORT="3000"
+ENV PORT="8080"
 ENV IP="0.0.0.0"
 ENV C9_HOSTNAME="localhost"

@@ -7,18 +7,19 @@ if os.path.isfile('env.py'):
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+ 
 # Initialize environment variables
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [ 'https://8000-creepersguit-explorefaroeislands-qxm3xco73bo.ws.codeinstitute-ide.net', '.herokuapp.com']
+ALLOWED_HOSTS = ["mb2test.herokuapp.com", "localhost"]
+
 # Application definition
 
 INSTALLED_APPS = [

@@ -80,7 +80,7 @@ if 'test' in sys.argv:
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
     "https://*.herokuapp.com",
-    "https://8000-creepersguit-explorefaroeislands-qxm3xco73bo.ws.codeinstitute-ide.net"
+    "https://p4a-2771e5659483.herokuapp.com"
 ]
 
 LOGGING = {

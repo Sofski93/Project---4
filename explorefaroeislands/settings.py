@@ -1,10 +1,7 @@
 import os
 import sys
 from pathlib import Path
-import django_heroku
 import dj_database_url
-import environ
-
 if os.path.isfile('env.py'):
     import env
 
@@ -21,13 +18,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    '8000-creepersguit-explorefaroeislands-qxm3xco73bo.ws.codeinstitute-ide.net',
-    'ci-project4-django-c7dcfccbb88c.herokuapp.com',
-    '.herokuapp.com',
-    'https://8000-creepersguit-explorefaroeislands-qxm3xco73bo.ws.codeinstitute-ide.net',
-]
-
+ALLOWED_HOSTS = ['8000-alsona1188-explorefaroeislands-17s170nhlfs.ws-eu114.gitpod.io', '.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [

@@ -18,7 +18,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['8000-alsona1188-explorefaroeislands-17s170nhlfs.ws-eu114.gitpod.io', '.herokuapp.com']
+ALLOWED_HOSTS = [ 'https://8000-creepersguit-explorefaroeislands-qxm3xco73bo.ws.codeinstitute-ide.net', '.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [

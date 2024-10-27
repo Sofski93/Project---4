@@ -1,1 +1,1 @@
-web: gunicorn explorefaroeislands.wsgi
+web: gunicorn explorefaroeislands.wsgi:application

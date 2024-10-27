@@ -31,7 +31,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django.contrib.staticfiles',
     'django_summernote',
-    'crispy_forms',
     'locations',    
 ]
 

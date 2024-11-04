@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY', '13rmmqo%4l21!$qe#x-)@04n%00rhjy-i5g46be(9tn#-7&#(=')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False

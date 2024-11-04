@@ -24,7 +24,6 @@ class Location(models.Model):
     region = models.CharField(max_length=20,
                               choices=REGION_OPTIONS, blank=True)
     body = models.TextField()
-    location_image = CloudinaryField('image', default='placeholder_image')
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='location_likes', 
                                    blank=True)
